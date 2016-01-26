@@ -2,6 +2,9 @@
   "name": "mbed-gcc",
   "version": "1.1.0",
   "description": "base mbed build target for gcc toolchain",
+  "inherits": {
+      "mbed": "*"
+  },
   "licenses": [
     {
       "url": "https://spdx.org/licenses/Apache-2.0",
@@ -18,7 +21,9 @@
     "gcc"
   ],
   "config": {
-    "mbed": {},
+    "mbed": {
+      "toolchain": "gcc"
+    },
     "mbed-os": {
       "stdio": {
         "default-baud": 9600
@@ -32,7 +37,6 @@
       "additional_event_pools_size": 100
     }
   },
-  "toolchain": "CMake/toolchain.cmake",
   "cmakeIncludes": [
     "coverage/coverage.cmake"
   ]
