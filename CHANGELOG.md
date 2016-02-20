@@ -1,3 +1,14 @@
+## 1.1.0
+ * Add support for building individual modules with code coverage
+
+## 1.0.0
+ * Switch on C++11 compilation by default. This is technically a breaking
+   change, but the mbed-OS modules themselves have been patched so that they
+   continue to work correctly.
+
+## 0.1.4
+ * add config for mbed default baud rate
+
 ## 0.1.3
  * update for compatibility with CMake 3.4
 
@@ -18,5 +29,3 @@
 ## 0.0.14
 For this and prior releases, no changes were tracked. Please see the git
 history
-
-
