@@ -28,6 +28,7 @@ add_definitions("-DTOOLCHAIN_GCC -DTOOLCHAIN_GCC_ARM -DMBED_OPERATORS")
 find_program(ARM_NONE_EABI_GCC arm-none-eabi-gcc)
 find_program(ARM_NONE_EABI_GPP arm-none-eabi-g++)
 find_program(ARM_NONE_EABI_OBJCOPY arm-none-eabi-objcopy)
+find_program(ARM_NONE_EABI_SIZE arm-none-eabi-size)
 macro(gcc_program_notfound progname)
     message("**************************************************************************\n")
     message(" ERROR: the arm gcc program ${progname} could not be found\n")
@@ -53,6 +54,9 @@ if(NOT ARM_NONE_EABI_GPP)
 endif()
 if(NOT ARM_NONE_EABI_OBJCOPY)
     gcc_program_notfound("arm-none-eabi-objcopy")
+endif()
+if(NOT ARM_NONE_EABI_SIZE)
+    gcc_program_notfound("arm-none-eabi-size")
 endif()
 
 
@@ -92,6 +96,11 @@ function(yotta_apply_target_rules target_type target_name)
             POST_BUILD
             COMMAND "${ARM_NONE_EABI_OBJCOPY}" -O binary ${target_name} ${target_name}.bin
             COMMENT "converting to .bin"
+            VERBATIM
+        )
+        add_custom_command(TARGET ${target_name}
+            POST_BUILD
+            COMMAND "${ARM_NONE_EABI_SIZE}" ${target_name}
             VERBATIM
         )
     endif()
