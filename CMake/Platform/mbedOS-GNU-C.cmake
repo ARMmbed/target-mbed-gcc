@@ -18,14 +18,14 @@ set(CMAKE_C_COMPILE_OBJECT        "<CMAKE_C_COMPILER> <DEFINES> ${EXPLICIT_INCLU
 set(CMAKE_C_LINK_EXECUTABLE       "<CMAKE_C_COMPILER> <CMAKE_C_LINK_FLAGS> <LINK_FLAGS> -Wl,-Map,<TARGET>.map -Wl,--start-group <OBJECTS> <LINK_LIBRARIES> ${GLOBALLY_LINKED_TARGET_LIBS} -lm -lc -lgcc -lm -lc -lgcc -Wl,--end-group  --specs=nano.specs -o <TARGET>")
 
 
-set(CMAKE_C_FLAGS_DEBUG_INIT          "-g -gdwarf-3")
+set(CMAKE_C_FLAGS_DEBUG_INIT          "-g -gdwarf-3 -fomit-frame-pointer")
 set(CMAKE_C_FLAGS_MINSIZEREL_INIT     "-Os -DNDEBUG")
 set(CMAKE_C_FLAGS_RELEASE_INIT        "-Os -DNDEBUG")
 set(CMAKE_C_FLAGS_RELWITHDEBINFO_INIT "-Os -g -gdwarf-3 -DNDEBUG")
 set(CMAKE_INCLUDE_SYSTEM_FLAG_C "-isystem ")
 
 
-set(CMAKE_ASM_FLAGS_DEBUG_INIT          "-g -gdwarf-3")
+set(CMAKE_ASM_FLAGS_DEBUG_INIT          "-g -gdwarf-3 -fomit-frame-pointer")
 set(CMAKE_ASM_FLAGS_MINSIZEREL_INIT     "-Os -DNDEBUG")
 set(CMAKE_ASM_FLAGS_RELEASE_INIT        "-Os -DNDEBUG")
 set(CMAKE_ASM_FLAGS_RELWITHDEBINFO_INIT "-Os -g -gdwarf-3 -DNDEBUG")
