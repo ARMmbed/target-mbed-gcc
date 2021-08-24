@@ -1,3 +1,7 @@
+## Deprecation note!
+
+**Please note: This repository is deprecated and it is no longer actively maintained**.
+
 ## Base yotta Target Description for Compiling with arm-none-eabi-gcc
 
 This is a base [yotta target
